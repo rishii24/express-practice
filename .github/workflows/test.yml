@@ -24,5 +24,4 @@ jobs:
       - name: Code Linting
         run: npm run lint
       - name: Run prettier
-        run: |-
-          npx prettier --check 'public/*[!.min].js'
+        uses: creyD/prettier_action@v4.2
