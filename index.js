@@ -1,5 +1,5 @@
-const express = require("express");
-var Datastore = require("nedb");
+import express from "express";
+import Datastore from "nedb";
 
 // var fs = require("fs");
 const app = express();
