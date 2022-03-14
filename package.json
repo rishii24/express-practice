@@ -14,9 +14,11 @@
   "author": "rishii24",
   "license": "MIT",
   "dependencies": {
-    "eslint": "^8.11.0",
     "express": "^4.17.3",
     "nedb": "^1.8.0",
     "prettier": "^2.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0"
   }
 }
