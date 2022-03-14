@@ -4,7 +4,7 @@ async function getData() {
     const data = await response.json()
     console.log(data)
 
-    for (items of data) {
+    for (let items of data) {
         const root = document.createElement('div')
         const geo = document.createElement('div')
         geo.textContent = `you're here : ${items.lat, items.long}`
