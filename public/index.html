@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<br>
+<script>
+    const loca = () => {
+        if ('geolocation' in navigator) {
+            console.log("geolocation is available")
+            navigator.geolocation.getCurrentPosition(async position => {
+                const lat = position.coords.latitude
+                document.getElementById("lati").textContent = lat
+                const long = position.coords.longitude
+                document.getElementById("long").textContent = long
+                // console.log(position);
+                const date = Date()
+                // console.log(date)
+                const data = { lat, long, date }
+                const opt = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                }
+                const response = await fetch('/apicall', opt)
+                const adata = await response.json()
+                console.log(adata)
+            });
+        } else {
+            console.log("geolocation is not available")
+
+        }
+    }
+</script>
+<h1>Welcome</h1>
+<p>latitude : <span id="lati"></span></p>
+<p>longitude : <span id="long"></span></p>
+
+<button onclick={loca()}>Get Location</button>
+<button onclick={location.reload()}>Reset</button>
+
+</body>
+
+</html>
