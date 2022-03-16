@@ -1,17 +1,17 @@
-import express from "express";
-import Datastore from "nedb";
+import express from 'express';
+import Datastore from 'nedb';
 
 // var fs = require("fs");
 const app = express();
-app.listen(3000, () => console.log("listening"));
+app.listen(3000, () => console.log('listening'));
 
-app.use(express.static("public"));
+app.use(express.static('public'));
 app.use(express.json()); //let know the server to parse incoming data as json
 
-const db = new Datastore("databse.db");
+const db = new Datastore('databse.db');
 db.loadDatabase();
 
-app.get("/apicall", (req, res) => {
+app.get('/apicall', (req, res) => {
   db.find({}, (err, data) => {
     if (err) {
       res.end();
@@ -21,7 +21,7 @@ app.get("/apicall", (req, res) => {
   });
 });
 
-app.post("/apicall", (req, res) => {
+app.post('/apicall', (req, res) => {
   console.log(req.body);
   db.insert(req.body); //adding to the database
   res.json(req.body);
